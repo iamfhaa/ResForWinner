@@ -3,12 +3,13 @@ package shabudekit;
 import java.util.Arrays;
 
 public class Food {
-    String[] nameOfFood;
-    String nameFood;
-    int MaxOfFood;
-    int NumFoodNow;
-    int NumOfMenu;
-    int CheckMenuForAdd;
+    private String[] nameOfFood;
+    private String nameFood;
+    private int MaxOfFood;
+    private int NumFoodNow;
+    private int NumOfMenu;
+    private int CheckMenuForAdd;
+
     
     public Food(int NumberOfFood) {  
         nameOfFood = new String[NumberOfFood];
@@ -62,5 +63,4 @@ public class Food {
     public String toString() {
         return " รายการอาหารที่มีได้ในร้าน =" + MaxOfFood + "รายการ";
     }
-    
 }

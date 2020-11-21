@@ -46,12 +46,21 @@ public class Person {
   }
  
    public void getAllPersonNow(){ //รายชื่อคนในร้านทั้งหมด ตอนนี้!!!
+       
+        String free = "โต๊ะว่าง";
            for (int i = 0; i < maxPerson; i++) {
             if(personInResNow[i]==null){
-                  personInResNow[i]="โต๊ะว่าง";     
+                  personInResNow[i]=free;     
             }
              }
            System.out.println("\nคนในร้านทั้งหมดตอนนี้" + Arrays.toString(personInResNow));
+           
+           for (int i = 0; i < maxPerson; i++) {
+            if(personInResNow[i]==free){
+                  personInResNow[i]=null;     
+            }
+             }
+           
    }
 
     @Override
@@ -63,7 +72,15 @@ public class Person {
         this.tablePerson = numTable-1;
         personInResNow[tablePerson]=null;
         numberOfWhoJoin-=1; 
-        System.out.println("\nโต๊ะที่ "+numTable+" ว่าง"); 
+        System.out.println("\nโต๊ะที่ "+numTable+"ได้เคลียเรียบร้อย"); 
+    }
+
+    public int getMaxPerson() {
+        return maxPerson;
+    }
+
+    public double getTem() {
+        return tem;
     }
     
     

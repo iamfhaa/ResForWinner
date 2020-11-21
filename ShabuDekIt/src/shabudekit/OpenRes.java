@@ -10,18 +10,18 @@ public class OpenRes {
     
     String  NameRes;
     
-    public OpenRes (String Name,int personCanJoin,double MaxTem, int NumberOfFood, int numOfDish, int maxMenu){
+    public OpenRes (String Name,int personCanJoin,double MaxTem, int NumberOfFood, int numOfDish){
         
         P = new Person(personCanJoin,MaxTem);
         F = new Food(NumberOfFood);
-        O = new Order(personCanJoin,numOfDish,maxMenu);
+        O = new Order(personCanJoin,numOfDish,NumberOfFood);
         
         this.NameRes=Name;
     }
 
     @Override
     public String toString() {
-        return "ชื่อร้าน ="+NameRes + P  + F ;
+        return "ชื่อร้าน ="+NameRes + P  + F + O ;
     }
     
     

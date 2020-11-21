@@ -14,7 +14,7 @@ public class TestOfScanner {
         int menu;
         String name;
         int table;
-        int tem;
+        double tem;
         int maxFood;
         
         ///////////////////// define status of res
@@ -31,13 +31,13 @@ public class TestOfScanner {
         
         System.out.println("กรุณาใส่อุณหภูมิสูงสุดที่สามารถเข้าร้านได้");
         
-        tem = scn.nextInt();
+        tem = scn.nextDouble();
         
         System.out.println("กรุณาใส่จำนวนรายการอาหารสูงสุดที่จะมีได้");
         
         maxFood = scn.nextInt();
         
-        OpenRes r = new OpenRes(name,table,tem,maxFood);
+//        OpenRes r = new OpenRes(name,table,tem,maxFood);   แดง
         System.out.println("r"); // show status 
         
         /////////////////////////////////////////////////// add menu of food
@@ -56,13 +56,13 @@ public class TestOfScanner {
             }
             nameFood = scn.nextLine();
             
-            r.F.addFood(i, nameFood);
+//            r.F.addFood(i, nameFood);แดง
             System.out.println("เมนูที่ "+(i)+" ของท่านคือ " +nameFood);
             i+=1;
             
         } while(i<=maxFood);
                      
-        r.F.GetAllMenu();
+//        r.F.GetAllMenu(); แดง
         
         
         

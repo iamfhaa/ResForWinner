@@ -16,6 +16,7 @@ public class TestOfScanner {
         int table;
         double tem;
         int maxFood;
+        int maxDish;
         
         ///////////////////// define status of res
         
@@ -37,12 +38,16 @@ public class TestOfScanner {
         
         maxFood = scn.nextInt();
         
-//        OpenRes r = new OpenRes(name,table,tem,maxFood);   แดง
+        System.out.println("กรุณาใส่จำนวนรายการอาหารที่สามารถขายได้ต่อวัน");
+        
+        maxDish = scn.nextInt();
+        
+       OpenRes r = new OpenRes(name,table,tem,maxFood,maxDish);  
         System.out.println("r"); // show status 
         
         /////////////////////////////////////////////////// add menu of food
         int i=1;
-        int numMenu;
+        
        
         System.out.println("====กรุณาใส่รายการอาหาร====");
         
@@ -56,15 +61,88 @@ public class TestOfScanner {
             }
             nameFood = scn.nextLine();
             
-//            r.F.addFood(i, nameFood);แดง
+           r.F.addFood(i, nameFood);
             System.out.println("เมนูที่ "+(i)+" ของท่านคือ " +nameFood);
             i+=1;
             
         } while(i<=maxFood);
                      
-//        r.F.GetAllMenu(); แดง
+        r.F.GetAllMenu();
         
+        /////////////////////////////menu start
         
+        int numMenu=1;
+        
+        while(numMenu==1|numMenu==2|numMenu==3|numMenu==4|numMenu==5){
+            
+            System.out.println("===กรุณาเลือกสิ่งที่ท่านต้องการทำ===");
+            
+            System.out.println("1 คนเข้าร้าน"+"\n2 คนออกร้าน"+"\n3 ออเดอร์อาหาร"+"\n4 เช็คคนในร้านตอนนี้");
+            
+            numMenu = scn.nextInt();
+            switch (numMenu) {     
+            case 1:             
+                            String namein;
+                            int temin;
+                            int tablein;
+                            
+                            System.out.println("ใส่ชื่อคนเข้า");
+                            
+                            namein = scn.nextLine();
+                            namein = scn.nextLine();
+                            
+                            System.out.println("ใส่อุณหภูมิ");
+                            
+                            temin = scn.nextInt();
+                            
+                            System.out.println("เลือกโต๊ะที่จะนั่ง");
+                            
+                            tablein = scn.nextInt();
+                           if(tablein<=r.P.getMaxPerson()){ 
+                            r.P.AddPersonInformation(namein, temin, tablein);
+                           }else System.out.println("ไม่มีโต๊ะ");
+                break;
+            case 2:         
+                        int tableout;
+                    
+                        System.out.println("เลือกโต๊ะที่จะออก");
+                        
+                        tableout = scn.nextInt();
+                           if(tableout<=r.P.getMaxPerson()){ 
+                           r.P.LeavePerson(tableout);
+                           }else System.out.println("ไม่มีโต๊ะ");
+                        
+                
+                break;
+                
+            case 3:   
+                
+                
+                
+                int tableOrder;
+                int numMenuOrder;
+                
+                System.out.println("เลือกโต๊ะที่จะสั่งอาหาร");
+                tableOrder = scn.nextInt();
+                
+                r.F.GetAllMenu();
+                System.out.println("เลือกเมนูที่จะสั่ง");
+                
+                numMenuOrder = scn.nextInt();
+                r.O.AddOrder(tableOrder, numMenuOrder);
+                
+
+                break;
+                
+            case 4:
+                
+                r.P.getAllPersonNow();
+            
+            
+           
+
+        }
+        }
         
         
         

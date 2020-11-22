@@ -34,7 +34,7 @@ public class TestOfScanner {
         
         tem = scn.nextDouble();
         
-        System.out.println("กรุณาใส่จำนวนรายการอาหารสูงสุดที่จะมีได้");
+        System.out.println("กรุณาใส่จำนวนรายการอาหารสูงสุดที่จะมีได้ ");
         
         maxFood = scn.nextInt();
         
@@ -42,8 +42,8 @@ public class TestOfScanner {
         
         maxDish = scn.nextInt();
         
-       OpenRes r = new OpenRes(name,table,tem,maxFood,maxDish);  
-        System.out.println("r"); // show status 
+       OpenRes r = new OpenRes(name,table,tem,maxFood,maxDish);   
+        System.out.println(r); // show status 
         
         /////////////////////////////////////////////////// add menu of food
         int i=1;
@@ -56,10 +56,8 @@ public class TestOfScanner {
         
             System.out.println("-กรุณาใส่เมนูที่ "+(i)+" -");  
             String nameFood;
-            if(i==1){
-            nameFood = scn.nextLine();
-            }
-            nameFood = scn.nextLine();
+           
+            nameFood = scn.next();
             
            r.F.addFood(i, nameFood);
             System.out.println("เมนูที่ "+(i)+" ของท่านคือ " +nameFood);
@@ -77,7 +75,7 @@ public class TestOfScanner {
             
             System.out.println("===กรุณาเลือกสิ่งที่ท่านต้องการทำ===");
             
-            System.out.println("1 คนเข้าร้าน"+"\n2 คนออกร้าน"+"\n3 ออเดอร์อาหาร"+"\n4 เช็คคนในร้านตอนนี้");
+            System.out.println("1 คนเข้าร้าน"+"\n2 คนออกร้าน"+"\n3 ออเดอร์อาหาร"+"\n4 เช็คคนในร้านตอนนี้"+"\n5 เช็คสถานะร้าน"+"\n6 จบการทำงาน");
             
             numMenu = scn.nextInt();
             switch (numMenu) {     
@@ -88,8 +86,7 @@ public class TestOfScanner {
                             
                             System.out.println("ใส่ชื่อคนเข้า");
                             
-                            namein = scn.nextLine();
-                            namein = scn.nextLine();
+                            namein = scn.next();
                             
                             System.out.println("ใส่อุณหภูมิ");
                             
@@ -126,7 +123,7 @@ public class TestOfScanner {
                 tableOrder = scn.nextInt();
                 
                 r.F.GetAllMenu();
-                System.out.println("เลือกเมนูที่จะสั่ง");
+                System.out.println("เลือกเมนูที่จะสั่ง (เป็นตัวเลข)");
                 
                 numMenuOrder = scn.nextInt();
                 r.O.AddOrder(tableOrder, numMenuOrder);
@@ -138,9 +135,9 @@ public class TestOfScanner {
                 
                 r.P.getAllPersonNow();
             
-            
+            case 5: System.out.println(r);
            
-
+            default:break;
         }
         }
         

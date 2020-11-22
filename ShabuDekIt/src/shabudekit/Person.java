@@ -39,8 +39,8 @@ public class Person {
      }else   System.out.println(namePerson+" ไม่สามารถเข้าร้านได้เนื่องจากอุณหภูมิเกิน");  
   }
    
-  public void AddPerson(){ //เพิ่มคนเข้าร้าน
-//      System.out.println(namePerson+" ได้เข้านั่งที่โต๊ะ "+(tablePerson+1));
+  private void AddPerson(){ //เพิ่มคนเข้าร้าน
+
       personInResNow[tablePerson]=namePerson;
       numberOfWhoJoin+=1;
   }
@@ -81,6 +81,14 @@ public class Person {
 
     public double getTem() {
         return tem;
+    }
+
+    public static String[] getPersonInResNow() {
+        return personInResNow;
+    }
+
+    public int getNumberOfWhoJoin() {
+        return numberOfWhoJoin;
     }
     
     

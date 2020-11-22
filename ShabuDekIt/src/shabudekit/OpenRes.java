@@ -11,7 +11,7 @@ public class OpenRes {
     String  NameRes;
     
     public OpenRes (String Name,int personCanJoin,double MaxTem, int NumberOfFood, int numOfDish){
-        
+        //ชื่อ , โตีะ , อุณหภูมิ , อาหารสูงสุดในเมนู , จำนวนที่สามารถขายได้ในแต่ละวัน
         P = new Person(personCanJoin,MaxTem);
         F = new Food(NumberOfFood);
         O = new Order(personCanJoin,numOfDish,NumberOfFood);

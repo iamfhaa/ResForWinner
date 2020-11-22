@@ -16,7 +16,7 @@ public class Food {
         this.MaxOfFood=NumberOfFood;
      }
     
-    public void addFood(int NumMenu,String name){  
+    public void addFood(int NumMenu,String name){   //เพิ่มเมนูอาหาร 
         nameFood=name;
         NumOfMenu=NumMenu-1;
         CheckMenuForAdd();
@@ -27,7 +27,7 @@ public class Food {
         System.out.println("\nเพิ่มเมนู "+nameFood+" ลงไปในรายการที่"+NumMenu);}
       }
     
-    public void CheckNumOfMenu(){
+    public void CheckStatusOfMenu(){ //เช็คสเตตัสอาหาร
         
         System.out.println("รายการอาหารที่ร้านมีได้ทั้งหมดคือ"+ MaxOfFood);
         System.out.println("ตอนนี้รายการอาหารที่มีอยู่คือ "+NumFoodNow);
@@ -35,20 +35,20 @@ public class Food {
         
     }
     
-    public boolean CheckMenuForAdd(){
+    private void CheckMenuForAdd(){ //เช็คเมนูว่าสาม่ารถแอดได้ไหม
         
         if(nameOfFood[NumOfMenu]==null){
             CheckMenuForAdd=1;
-            return true;
+           
         }else
         
         System.out.println("รายการ "+nameFood+" ไม่สามารถเพิ่มลงไปในเมนูได้ เนื่องจากรายการนี้มีเมนูอื่น");
         CheckMenuForAdd=2;
-        return false;
+        
         
     }
     
-    public void GetAllMenu(){
+    public void GetAllMenu(){    //เช็คเมนูทั้งหมด
          for (int i = 0; i < MaxOfFood; i++) {
             if(nameOfFood[i]==null){
                   nameOfFood[i]="รายการนี้ว่าง";
@@ -57,6 +57,14 @@ public class Food {
             
              }
           System.out.println("\nเมนูอาหารตอนนี้" + Arrays.toString(nameOfFood));
+    }
+
+    public int getMaxOfFood() {
+        return MaxOfFood;
+    }
+
+    public int getNumFoodNow() {
+        return NumFoodNow;
     }
 
     @Override

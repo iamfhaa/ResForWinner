@@ -4,15 +4,14 @@ package shabudekit;
 import java.util.Arrays;
 
 public class Person {
-  public  static String[] personInResNow; //คนที่อยู่ตอนนี้
+  public  static String[] personInResNow; //person in now
  
-  private String namePerson; //ชื่อคน
-  private int personCanJoin; //คนที่สามารถเข้ามาได้
-  private int tablePerson; //โต๊ะที่คนนั่ง
-  private int numberOfWhoJoin=0; //จำนวนคนเข้า
-  private int maxPerson; //จำนวนคนสูงสุด
-  private double MaxTem ; //อุณหภูมิสูงสุด
-  private double tem; //อุณหภูมิ
+  private String namePerson; //name of person
+  private int tablePerson; //the table have person
+  private int numberOfWhoJoin=0; //the namber of person come in
+  private int maxPerson; //the maximum of person
+  private double MaxTem ; //the maximum of tempeture
+  private double tem; //temperature 
   
         
    public Person(int personCanJoin,double MaxTem) {  
@@ -22,38 +21,38 @@ public class Person {
         this.MaxTem=MaxTem;
        
     }
-   public void AddPersonInformation(String name,double TemAdd,int tableAdd){ //คัดคนเข้าร้าน
+   public void AddPersonInformation(String name,double TemAdd,int tableAdd){ //choose the person can coming
     namePerson=name;
     tem=TemAdd;
     tablePerson=tableAdd-1;
      if(TemAdd<=MaxTem){
           
       if(personInResNow[tableAdd-1]!=null){
-              System.out.println(name+" ไม่สามารถเข้าร้านได้เนื่องจากโต๊ะที่ "+tableAdd+" เต็ม");
+              System.out.println(name+" can't come in the resturant because the table  "+tableAdd+" full");
          }else{
           AddPerson();
-          System.out.println(namePerson+" ได้เข้านั่งที่โต๊ะ "+(tablePerson+1));
+          System.out.println(namePerson+" join on this table "+(tablePerson+1));
           
       }
           
-     }else   System.out.println(namePerson+" ไม่สามารถเข้าร้านได้เนื่องจากอุณหภูมิเกิน");  
+     }else   System.out.println(namePerson+" can't coming in this resturant because your temperature is over");  
   }
    
-  private void AddPerson(){ //เพิ่มคนเข้าร้าน
+  private void AddPerson(){ // add the person join in the resturant
 
       personInResNow[tablePerson]=namePerson;
       numberOfWhoJoin+=1;
   }
  
-   public void getAllPersonNow(){ //รายชื่อคนในร้านทั้งหมด ตอนนี้!!!
+   public void getAllPersonNow(){ //all of list name in the resturant now!!!
        
-        String free = "โต๊ะว่าง";
+        String free = "- no person - ";
            for (int i = 0; i < maxPerson; i++) {
             if(personInResNow[i]==null){
                   personInResNow[i]=free;     
             }
              }
-           System.out.println("\nคนในร้านทั้งหมดตอนนี้" + Arrays.toString(personInResNow));
+           System.out.println("\n The person in the resturant now" + Arrays.toString(personInResNow));
            
            for (int i = 0; i < maxPerson; i++) {
             if(personInResNow[i]==free){
@@ -65,14 +64,14 @@ public class Person {
 
     @Override
     public String toString() {
-        return  " จำนวนคนที่เข้าร้านได้ =" + maxPerson + ", อุณหภูมิของคนที่เข้าร้านต้องไม่เกิน =" + MaxTem ;
+        return  " the number of person can join in the resturant=" + maxPerson + ", The max temperature of person =" + MaxTem ;
     }
     
-    public void LeavePerson(int numTable){ //เอาคนออก
+    public void LeavePerson(int numTable){ // leave the person 
         this.tablePerson = numTable-1;
         personInResNow[tablePerson]=null;
         numberOfWhoJoin-=1; 
-        System.out.println("\nโต๊ะที่ "+numTable+"ได้เคลียเรียบร้อย"); 
+        System.out.println("\ntable "+numTable+"is clear"); 
     }
 
     public int getMaxPerson() {

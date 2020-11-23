@@ -2,8 +2,8 @@
 package shabudekit;
 
 public class Order {
-    int maxTable; //จำนวนโต๊ะสูงสุด
-    int numOfDish; //จำนวนอาหาร
+    int maxTable; //the maximum of table 
+    int numOfDish; //the number of food 
     int maxMenu;
     
     public Order(int numberPerson, int numOfDish, int maxMenu){
@@ -23,15 +23,15 @@ public class Order {
                     if(listMenu<=maxMenu){
                         numOfDish--;
                         
-                        System.out.println("โต๊ะที่ " + numOftable + "  ได้สั่งเมนูที่ " + listMenu);
+                        System.out.println(" Table " + numOftable + "  order the menu number  " + listMenu);
                         
-                    }else System.out.println("รายการนี้ไม่อยู่ในเมนู");
+                    }else System.out.println("Food doesn't in this menu");
                     
-                }else System.out.println("อาหารไม่พอ");
+                }else System.out.println("Food not enough");
                 
-            }else System.out.println("โต๊ะนี้ไม่มีคนนั่ง");   
+            }else System.out.println("This table haven't person");   
             
-        }else System.out.println("โต๊ะนี้ไม่มีในร้าน");
+        }else System.out.println("This table haven't in the resturant ");
                    }
 
     
@@ -47,7 +47,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "จำนวนอาหารที่ขายได้ในแต่ละวัน=" + numOfDish + '}';
+        return "The nummber of food can sell per day=" + numOfDish + '}';
     }
     
     

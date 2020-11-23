@@ -16,7 +16,7 @@ public class Food {
         this.MaxOfFood=NumberOfFood;
      }
     
-    public void addFood(int NumMenu,String name){   //เพิ่มเมนูอาหาร 
+    public void addFood(int NumMenu,String name){   //add food menu 
         nameFood=name;
         NumOfMenu=NumMenu-1;
         CheckMenuForAdd();
@@ -24,39 +24,39 @@ public class Food {
         if(CheckMenuForAdd==1){
         NumFoodNow+=1;
         nameOfFood[NumOfMenu]=nameFood;
-        System.out.println("\nเพิ่มเมนู "+nameFood+" ลงไปในรายการที่"+NumMenu);}
+        System.out.println("\nAdded"+nameFood+" in the order"+NumMenu);}
       }
     
-    public void CheckStatusOfMenu(){ //เช็คสเตตัสอาหาร
+    public void CheckStatusOfMenu(){ //check status of food 
         
-        System.out.println("รายการอาหารที่ร้านมีได้ทั้งหมดคือ"+ MaxOfFood);
-        System.out.println("ตอนนี้รายการอาหารที่มีอยู่คือ "+NumFoodNow);
-        System.out.println("สามารถเพิ่มรายการอาหารได้อีก"+(MaxOfFood-NumFoodNow));
+        System.out.println("all of menu we have now = "+ MaxOfFood);
+        System.out.println("now we have "+NumFoodNow);
+        System.out.println("can add more menu"+(MaxOfFood-NumFoodNow));
         
     }
     
-    private void CheckMenuForAdd(){ //เช็คเมนูว่าสาม่ารถแอดได้ไหม
+    private void CheckMenuForAdd(){ //check the menu  it can add?
         
         if(nameOfFood[NumOfMenu]==null){
             CheckMenuForAdd=1;
            
         }else
         
-        System.out.println("รายการ "+nameFood+" ไม่สามารถเพิ่มลงไปในเมนูได้ เนื่องจากรายการนี้มีเมนูอื่น");
+        System.out.println("order "+nameFood+" can't add a menu because the order has another menu ");
         CheckMenuForAdd=2;
         
         
     }
     
-    public void GetAllMenu(){    //เช็คเมนูทั้งหมด
+    public void GetAllMenu(){    // check all of menu
          for (int i = 0; i < MaxOfFood; i++) {
             if(nameOfFood[i]==null){
-                  nameOfFood[i]="รายการนี้ว่าง";
+                  nameOfFood[i]="the order is null";
                
             }
             
              }
-          System.out.println("\nเมนูอาหารตอนนี้" + Arrays.toString(nameOfFood));
+          System.out.println("\n menu is now" + Arrays.toString(nameOfFood));
     }
 
     public int getMaxOfFood() {
@@ -69,6 +69,6 @@ public class Food {
 
     @Override
     public String toString() {
-        return " รายการอาหารที่มีได้ในร้าน =" + MaxOfFood + "รายการ";
+        return " the menu in resturant=" + MaxOfFood + " the menu ";
     }
 }

@@ -1,5 +1,5 @@
 package shabudekit;
-//menu = scn.nextInt();
+
 import java.util.Scanner;
 
 public class TestOfScanner {
@@ -20,25 +20,25 @@ public class TestOfScanner {
         
         ///////////////////// define status of res
         
-        System.out.println("====การสร้างร้านอาหารได้เริ่มต้นขึ้นแล้ว====");
+        System.out.println("===The resturant have start====");
         
-        System.out.println("กรุณาใส่ชื่อร้าน");
+        System.out.println("Plese in put the name of resturant");
         
         name = scn.nextLine();
         
-        System.out.println("กรุณาใส่จำนวนโต๊ะในร้าน");
+        System.out.println("Plese  in put the number of table in the resturant");
         
         table = scn.nextInt();
         
-        System.out.println("กรุณาใส่อุณหภูมิสูงสุดที่สามารถเข้าร้านได้");
+        System.out.println("Plese in put the temperature the person can come in the resturant");
         
         tem = scn.nextDouble();
         
-        System.out.println("กรุณาใส่จำนวนรายการอาหารสูงสุดที่จะมีได้ ");
+        System.out.println("Plese in put the maximum of menu can have ");
         
         maxFood = scn.nextInt();
         
-        System.out.println("กรุณาใส่จำนวนรายการอาหารที่สามารถขายได้ต่อวัน");
+        System.out.println("Plese in put the number of food can sell per day");
         
         maxDish = scn.nextInt();
         
@@ -49,18 +49,18 @@ public class TestOfScanner {
         int i=1;
         
        
-        System.out.println("====กรุณาใส่รายการอาหาร====");
+        System.out.println("====Plese in put the menu====");
         
         do{
             
         
-            System.out.println("-กรุณาใส่เมนูที่ "+(i)+" -");  
+            System.out.println("-Enter the name of the food in menu "+(i)+" -");  
             String nameFood;
            
             nameFood = scn.next();
             
            r.F.addFood(i, nameFood);
-            System.out.println("เมนูที่ "+(i)+" ของท่านคือ " +nameFood);
+            System.out.println("The menu "+(i)+"  is  " +nameFood);
             i+=1;
             
         } while(i<=maxFood);
@@ -73,9 +73,9 @@ public class TestOfScanner {
         
         while(numMenu==1|numMenu==2|numMenu==3|numMenu==4|numMenu==5){
             
-            System.out.println("===กรุณาเลือกสิ่งที่ท่านต้องการทำ===");
+            System.out.println("===Plese in put the number you want to do ===");
             
-            System.out.println("1 คนเข้าร้าน"+"\n2 คนออกร้าน"+"\n3 ออเดอร์อาหาร"+"\n4 เช็คคนในร้านตอนนี้"+"\n5 เช็คสถานะร้าน"+"\n6 จบการทำงาน");
+            System.out.println("1 person join"+"\n2 person leave"+"\n3 order the menu"+"\n4 check the number of person in resnow"+"\n5 check the status of resturant"+"\n6 end of the program");
             
             numMenu = scn.nextInt();
             switch (numMenu) {     
@@ -84,30 +84,30 @@ public class TestOfScanner {
                             int temin;
                             int tablein;
                             
-                            System.out.println("ใส่ชื่อคนเข้า");
+                            System.out.println("in put the name of person join");
                             
                             namein = scn.next();
                             
-                            System.out.println("ใส่อุณหภูมิ");
+                            System.out.println("in put the temperature of person join");
                             
                             temin = scn.nextInt();
                             
-                            System.out.println("เลือกโต๊ะที่จะนั่ง");
+                            System.out.println("choose table you want to sit there");
                             
                             tablein = scn.nextInt();
                            if(tablein<=r.P.getMaxPerson()){ 
                             r.P.AddPersonInformation(namein, temin, tablein);
-                           }else System.out.println("ไม่มีโต๊ะ");
+                           }else System.out.println("don't have a table");
                 break;
             case 2:         
                         int tableout;
                     
-                        System.out.println("เลือกโต๊ะที่จะออก");
+                        System.out.println("choose table for leave");
                         
                         tableout = scn.nextInt();
                            if(tableout<=r.P.getMaxPerson()){ 
                            r.P.LeavePerson(tableout);
-                           }else System.out.println("ไม่มีโต๊ะ");
+                           }else System.out.println("don't have a table in res");
                         
                 
                 break;
@@ -119,11 +119,11 @@ public class TestOfScanner {
                 int tableOrder;
                 int numMenuOrder;
                 
-                System.out.println("เลือกโต๊ะที่จะสั่งอาหาร");
+                System.out.println("choose table for order food");
                 tableOrder = scn.nextInt();
                 
                 r.F.GetAllMenu();
-                System.out.println("เลือกเมนูที่จะสั่ง (เป็นตัวเลข)");
+                System.out.println("choose the menu for order (enter number)");
                 
                 numMenuOrder = scn.nextInt();
                 r.O.AddOrder(tableOrder, numMenuOrder);

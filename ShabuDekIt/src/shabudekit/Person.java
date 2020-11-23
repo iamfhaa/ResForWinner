@@ -82,9 +82,7 @@ public class Person {
         return tem;
     }
 
-    public static String[] getPersonInResNow() {
-        return personInResNow;
-    }
+    
 
     public int getNumberOfWhoJoin() {
         return numberOfWhoJoin;

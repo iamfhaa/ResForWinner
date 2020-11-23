@@ -1,6 +1,7 @@
 package shabudekit;
 
 import java.util.Arrays;
+import static shabudekit.Person.personInResNow;
 
 public class Food {
     private String[] nameOfFood;
@@ -50,13 +51,21 @@ public class Food {
     }
     
     public void GetAllMenu(){    // check all of menu
+        String full = "the order is null";
          for (int i = 0; i < MaxOfFood; i++) {
             if(nameOfFood[i]==null){
-                  nameOfFood[i]="the order is null";
+                  nameOfFood[i]=full;
                
             }
             
+         }
+             for (int i = 0; i < MaxOfFood; i++) {
+            if(personInResNow[i]==full){
+                  personInResNow[i]=null;     
+            }
              }
+            
+             
           System.out.println("\n menu is now" + Arrays.toString(nameOfFood));
     }
 

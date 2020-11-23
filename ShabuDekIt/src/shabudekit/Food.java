@@ -35,16 +35,17 @@ public class Food {
         
     }
     
-    private void CheckMenuForAdd(){ //check the menu  it can add?
+    private boolean CheckMenuForAdd(){ //check the menu  it can add?
         
         if(nameOfFood[NumOfMenu]==null){
             CheckMenuForAdd=1;
+            return true;
            
         }else
         
         System.out.println("order "+nameFood+" can't add a menu because the order has another menu ");
         CheckMenuForAdd=2;
-        
+        return false;
         
     }
     

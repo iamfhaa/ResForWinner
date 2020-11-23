@@ -4,8 +4,8 @@ import java.util.Arrays;
 import static shabudekit.Person.personInResNow;
 
 public class Food {
-    private String[] nameOfFood;
-    private String nameFood;
+    private String[] nameOfFood; 
+    private String nameFood;  
     private int MaxOfFood;
     private int NumFoodNow;
     private int NumOfMenu;
@@ -18,9 +18,10 @@ public class Food {
      }
     
     public void addFood(int NumMenu,String name){   //add food menu 
-        nameFood=name;
+        nameFood=name;         
         NumOfMenu=NumMenu-1;
-        CheckMenuForAdd();
+        
+        CheckMenuForAdd(); 
         
         if(CheckMenuForAdd==1){
         NumFoodNow+=1;
@@ -28,15 +29,8 @@ public class Food {
         System.out.println("\nAdded"+nameFood+" in the order"+NumMenu);}
       }
     
-    public void CheckStatusOfMenu(){ //check status of food 
-        
-        System.out.println("all of menu we have now = "+ MaxOfFood);
-        System.out.println("now we have "+NumFoodNow);
-        System.out.println("can add more menu"+(MaxOfFood-NumFoodNow));
-        
-    }
-    
-    private boolean CheckMenuForAdd(){ //check the menu  it can add?
+  
+    private boolean CheckMenuForAdd(){ 
         
         if(nameOfFood[NumOfMenu]==null){
             CheckMenuForAdd=1;
@@ -45,28 +39,44 @@ public class Food {
         }else
         
         System.out.println("order "+nameFood+" can't add a menu because the order has another menu ");
+        
         CheckMenuForAdd=2;
         return false;
         
     }
+      public void CheckStatusOfMenu(){ //check status of food 
+        
+        System.out.println("all of menu we have now = "+ MaxOfFood);  
+        System.out.println("now we have "+NumFoodNow);
+        System.out.println("can add more menu"+(MaxOfFood-NumFoodNow));
+        
+    }
+    
     
     public void GetAllMenu(){    // check all of menu
-        String full = "the order is null";
+        
+        String full = "dont have";
+        
+        
          for (int i = 0; i < MaxOfFood; i++) {
+             
             if(nameOfFood[i]==null){
                   nameOfFood[i]=full;
                
             }
             
+             System.out.println("\n menu is now" + Arrays.toString(nameOfFood));
+             
          }
              for (int i = 0; i < MaxOfFood; i++) {
-            if(personInResNow[i]==full){
-                  personInResNow[i]=null;     
+                 
+            if(nameOfFood[i]==full){
+                  nameOfFood[i]=null;     
             }
              }
             
              
-          System.out.println("\n menu is now" + Arrays.toString(nameOfFood));
+         
     }
 
     public int getMaxOfFood() {

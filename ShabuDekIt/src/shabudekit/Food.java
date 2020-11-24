@@ -1,9 +1,8 @@
 package shabudekit;
 
 import java.util.Arrays;
-import static shabudekit.Person.personInResNow;
 
-public class Food {
+    public class Food {
     private String[] nameOfFood; 
     private String nameFood;  
     private int MaxOfFood;
@@ -24,8 +23,12 @@ public class Food {
         CheckMenuForAdd(); 
         
         if(CheckMenuForAdd==1){
+            
         NumFoodNow+=1;
+        
         nameOfFood[NumOfMenu]=nameFood;
+        
+        
         System.out.println("\nAdded"+nameFood+" in the order"+NumMenu);}
       }
     
@@ -61,13 +64,16 @@ public class Food {
          for (int i = 0; i < MaxOfFood; i++) {
              
             if(nameOfFood[i]==null){
-                  nameOfFood[i]=full;
+                  nameOfFood[i]=full; 
                
             }
             
-             System.out.println("\n menu is now" + Arrays.toString(nameOfFood));
+            
              
          }
+         
+          System.out.println("\n menu is now" + Arrays.toString(nameOfFood));
+          
              for (int i = 0; i < MaxOfFood; i++) {
                  
             if(nameOfFood[i]==full){
